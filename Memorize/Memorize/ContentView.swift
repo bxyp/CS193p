@@ -10,36 +10,39 @@ import SwiftUI
 
 
 struct ContentView: View {
+    
     //Computed Properties
     var body: some View {
         HStack{
             cardView(isFaceUp: true)
-            cardView()
-            cardView()
-            cardView()
+            cardView(isFaceUp: false)
+            cardView(isFaceUp: true)
+            cardView(isFaceUp: false)
         }
         .padding()
-        .foregroundColor(.orange)
+        .foregroundColor(.purple)
     }
 }
 
 struct cardView: View{
-    var isFaceUp: Bool = false
+    //isFaceUp is a boolean
+    var isFaceUp: Bool
     
     var body: some View{
-        ZStack(content:  {
+        ZStack  {
+            //Local Variable (Let means that it is a constant and won't change)
+            //Type inference
+            let base = RoundedRectangle(cornerRadius: 12)
+            
+            //if the card is faceup
             if isFaceUp{
-                RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(.white)
-                RoundedRectangle(cornerRadius: 12)
-                    .strokeBorder(lineWidth: 2)
+                base.fill(.white)
+                base.strokeBorder(lineWidth: 2)
                 Text("👻").font(.largeTitle)
             } else {
-                RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(.purple)
-                    
+                base.fill()
             }
-        })
+        }
     }
 }
 

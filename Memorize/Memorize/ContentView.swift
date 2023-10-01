@@ -13,11 +13,13 @@ struct ContentView: View {
     
     //Computed Properties
     var body: some View {
+        let emojis: [String] = ["👻", "🎃", "🕷️", "👹"]
+
         HStack{
-            cardView(isFaceUp: true)
-            cardView(isFaceUp: false)
-            cardView(isFaceUp: true)
-            cardView(isFaceUp: false)
+            cardView(content:emojis[0], isFaceUp: false)
+            cardView(content:emojis[1], isFaceUp: false)
+            cardView(content:emojis[2], isFaceUp: false)
+            cardView(content:emojis[3], isFaceUp: false)
         }
         .padding()
         .foregroundColor(.purple)
@@ -25,6 +27,8 @@ struct ContentView: View {
 }
 
 struct cardView: View{
+    
+    let content: String
     //isFaceUp is a boolean
     @State var isFaceUp = false
     
@@ -38,7 +42,7 @@ struct cardView: View{
             if isFaceUp{
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
-                Text("👻").font(.largeTitle)
+                Text(content).font(.largeTitle)
             } else {
                 base.fill()
             }

@@ -10,16 +10,16 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
     //Computed Properties
     var body: some View {
+        
+        //let emojis = ["👻", "🎃", "🕷️", "👹"]
         let emojis: [String] = ["👻", "🎃", "🕷️", "👹"]
-
         HStack{
-            cardView(content:emojis[0], isFaceUp: false)
-            cardView(content:emojis[1], isFaceUp: false)
-            cardView(content:emojis[2], isFaceUp: false)
-            cardView(content:emojis[3], isFaceUp: false)
+            
+            ForEach(emojis.indices, id: \.self) { index in
+                cardView(content: emojis[index])
+            }
         }
         .padding()
         .foregroundColor(.purple)
@@ -30,7 +30,7 @@ struct cardView: View{
     
     let content: String
     //isFaceUp is a boolean
-    @State var isFaceUp = false
+    @State var isFaceUp = true
     
     var body: some View{
         ZStack  {

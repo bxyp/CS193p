@@ -10,24 +10,77 @@ import SwiftUI
 
 
 struct ContentView: View {
-    //Computed Properties
+    
+    //let emojis = ["👻", "🎃", "🕷️", "👹"]
+    let emojis: [String] = ["👻", "🎃", "🕷️", "👹", "🌵", "🌝", "🌩️", "💣", "🚗", "⭐️", "😱", "😈"]
+    
+    @State var cardCount: Int = 4
+    
+    
+//---------
+    
+    //VarBody
     var body: some View {
-        
-        //let emojis = ["👻", "🎃", "🕷️", "👹"]
-        let emojis: [String] = ["👻", "🎃", "🕷️", "👹"]
-        HStack{
+        VStack{
             
-            ForEach(emojis.indices, id: \.self) { index in
+            cards
+            cardCountAdjusters
+        }
+        .padding()
+    }
+//--------------------
+    
+    //ViewBody for cards
+    var cards: some View {
+        HStack{
+            ForEach(0..<cardCount, id: \.self) { index in
                 cardView(content: emojis[index])
             }
         }
-        .padding()
         .foregroundColor(.purple)
     }
+//--------------------
+    
+    //VarBody to either subtract or add cards
+    var cardCountAdjusters: some View {
+        HStack{
+            cardRemover
+            Spacer()
+            cardAdder
+        }
+        .imageScale(.large)
+        .font(.largeTitle)
+    }
+//--------------------
+    
+    //ViewBody to remove cards
+    var cardRemover: some View {
+        Button(action: {
+            if cardCount > 1{
+                cardCount -= 1
+            }
+            
+        }, label:{
+            Image(systemName: "rectangle.stack.badge.minus.fill")
+        })
+    }
+    
+//----------------
+    
+    //ViewBody to add cards
+    var cardAdder: some View {
+        Button(action: {
+            if cardCount < emojis.count{
+                cardCount += 1
+            }
+        }, label:{
+            Image(systemName: "rectangle.stack.badge.plus.fill")
+        })
+    }
 }
+//---------------
 
 struct cardView: View{
-    
     let content: String
     //isFaceUp is a boolean
     @State var isFaceUp = true
@@ -51,6 +104,7 @@ struct cardView: View{
         }
     }
 }
+//-----------
 
 
 

@@ -17,8 +17,7 @@ struct ContentView: View {
     @State var cardCount: Int = 4
     
     
-    //---------
-    
+    //-----------------------
     //VarBody
     var body: some View {
         VStack{
@@ -30,8 +29,8 @@ struct ContentView: View {
         }
         .padding()
     }
-    //--------------------
     
+    //------------------------
     //ViewBody for cards
     var cards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
@@ -42,8 +41,8 @@ struct ContentView: View {
         }
         .foregroundColor(.purple)
     }
-    //--------------------
     
+    //-----------------------
     //VarBody to either subtract or add cards
     var cardCountAdjusters: some View {
         HStack{
@@ -54,7 +53,9 @@ struct ContentView: View {
         .imageScale(.large)
         .font(.largeTitle)
     }
-    //--------------------
+    
+    //----------------------
+    //Function for removing and adding cards
     func cardCountAdjuster(by offset: Int, symbol: String) -> some View{
         Button(action: {
             cardCount += offset
@@ -64,20 +65,22 @@ struct ContentView: View {
         .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
     }
     
+    //----------------------
     //ViewBody to remove cards
     var cardRemover: some View {
         return cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus.fill")
     }
     
     //----------------
-    
     //ViewBody to add cards
     var cardAdder: some View {
         return cardCountAdjuster(by: +1, symbol: "rectangle.stack.badge.plus.fill")
     }
 }
-//---------------
 
+
+
+//---------------
 struct cardView: View{
     let content: String
     //isFaceUp is a boolean

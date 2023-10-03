@@ -12,7 +12,8 @@ import SwiftUI
 struct ContentView: View {
     
     //let emojis = ["👻", "🎃", "🕷️", "👹"]
-    let emojis: [String] = ["👻", "🎃", "🕷️", "👹", "🌵", "🌝", "🌩️", "💣", "🚗", "⭐️", "😱", "😈"]
+    //let emojis: [String] = ["🚗", "🚙", "☺️", "🌲", "🌵", "🌵", "😱", "🚙", "🚗", "☺️", "😱", "🌲"]
+    let cars: ["🚗", "🚙", "🚓", "🚕", "🚗","🚙","🚓","🚕"]
     
     @State var cardCount: Int = 4
     
@@ -20,12 +21,15 @@ struct ContentView: View {
     //-----------------------
     //VarBody
     var body: some View {
+        
         VStack{
             ScrollView{
+                title
                 cards
             }
             Spacer()
             cardCountAdjusters
+            //themeChoosing
         }
         .padding()
     }
@@ -53,6 +57,24 @@ struct ContentView: View {
         .imageScale(.large)
         .font(.largeTitle)
     }
+    
+    //----------------------
+    //Title for memorize game
+    var title: some View{
+        Text("Memorize!").font(.largeTitle).bold()
+    }
+    
+    //----------------------
+    //VarBody for ThemeChoosing
+    /*
+    var themeChoosing: some View {
+        Button (action: {
+            Text(cars)
+        })
+    }
+     */
+    
+    
     
     //----------------------
     //Function for removing and adding cards

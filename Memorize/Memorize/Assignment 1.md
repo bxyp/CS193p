@@ -2,7 +2,7 @@
 
 Required Tasks
 1. Get the Memorize game working as demonstrated in lectures 1 and 2. Type in all the
-code. Do not copy/paste from anywhere.
+code. Do not copy/paste from anywhere. --
 
 2. After doing so, you can feel free to remove the ⊖ and ⊕ buttons at the bottom of the
 screen (or not, your choice) and all of the code that supports it.

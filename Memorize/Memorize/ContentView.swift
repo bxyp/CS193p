@@ -13,7 +13,7 @@ struct ContentView: View {
     
     //let emojis = ["👻", "🎃", "🕷️", "👹"]
     //let emojis: [String] = ["🚗", "🚙", "☺️", "🌲", "🌵", "🌵", "😱", "🚙", "🚗", "☺️", "😱", "🌲"]
-    let cars: ["🚗", "🚙", "🚓", "🚕", "🚗","🚙","🚓","🚕"]
+    let cars: [String] = ["🚗", "🚙", "🚓", "🚕", "🚗","🚙","🚓","🚕"]
     
     @State var cardCount: Int = 4
     
@@ -39,7 +39,7 @@ struct ContentView: View {
     var cards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
             ForEach(0..<cardCount, id: \.self) { index in
-                cardView(content: emojis[index])
+                cardView(content: cars[index])
                     .aspectRatio(2/3, contentMode: .fit)
             }
         }
@@ -84,7 +84,7 @@ struct ContentView: View {
         }, label:{
             Image(systemName: symbol)
         })
-        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
+        .disabled(cardCount + offset < 1 || cardCount + offset > cars.count)
     }
     
     //----------------------

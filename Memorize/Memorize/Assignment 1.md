@@ -7,7 +7,7 @@ code. Do not copy/paste from anywhere. --
 2. After doing so, you can feel free to remove the ⊖ and ⊕ buttons at the bottom of the
 screen (or not, your choice) and all of the code that supports it.
 3. Add a title “Memorize!” to the top of the screen. It’s a title, so it should be in a large
-font.
+font. --
 
 4. Add at least 3 “theme choosing” buttons to your UI, each of which causes all of the
 cards’ emojis to be replaced with new emojis from the chosen theme. A “theme” just
